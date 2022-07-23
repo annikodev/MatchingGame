@@ -3,11 +3,16 @@ import MyBlock from "./components/UI/MyBlock/MyBlock";
 import GameField from "./components/UI/GameField/GameField";
 
 function App() {
+    const randomArray= (arr) => {
+        return arr.sort(()=>Math.random()-0.5)
+    }
+    let gameArray = randomArray(['+','+','-','-','*','*','/','/','$','$','@','@','&','&','=','='])
+
   return (
     <div className="App">
         <MyBlock>Matching Game</MyBlock>
         <MyBlock>Settings</MyBlock>
-        <GameField></GameField>
+        <GameField gamearray={gameArray}></GameField>
     </div>
   );
 }

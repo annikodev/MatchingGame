@@ -8,13 +8,35 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
-
-
   div {
     background: $elementCOlor;
     height: 0;
     padding-bottom: 93.5%;
     margin: 4px;
+    cursor: pointer;
+    transition: 0.5s;
+
+    span{
+      color: $blockColor;
+      font-size: 5em;
+      display: none;
+    }
+    span.active {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  div:hover{
+    transition: 0.5s;
+    background: darken($elementCOlor, 10);
+  }
+  @media screen and (max-width: 800px) {
+    div {
+      padding-bottom: 91.8%;
+      span {
+        font-size: 3em;
+      }
+    }
   }
 }
 

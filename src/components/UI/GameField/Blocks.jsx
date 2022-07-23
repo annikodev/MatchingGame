@@ -1,19 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import styles from './GameField.module.scss'
 
-const Blocks = ({item, compare}) => {
-    const [visible, setVisible] = useState(false)
-    const vi = (visible) => {
-        setVisible(!visible)
-    }
-
+const Blocks = ({item, compare,visibled, itemindex}) => {
 
     return (
         <div onClick={()=>{
-            vi(visible)
-            compare(item)
-        }}>
-            <span  className={visible?styles.active:''}>{item}</span>
+            if (visibled){
+
+            } else {
+                compare(item, itemindex)
+            }
+        }}
+             className={visibled?styles.active:''}
+        >
+            <span className={visibled?styles.active:''}>{item}</span>
         </div>
     );
 

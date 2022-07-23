@@ -6,7 +6,24 @@ function App() {
     const randomArray= (arr) => {
         return arr.sort(()=>Math.random()-0.5)
     }
-    let gameArray = randomArray(['+','+','-','-','*','*','/','/','$','$','@','@','&','&','=','='])
+    let gameArray = randomArray([
+        {item:'+', visible: false},
+        {item:'+', visible: false},
+        {item:'-', visible: false},
+        {item:'-', visible: false},
+        {item:'*', visible: false},
+        {item:'*', visible: false},
+        {item:'@', visible: false},
+        {item:'@', visible: false},
+        {item:'$', visible: false},
+        {item:'$', visible: false},
+        {item:'~', visible: false},
+        {item:'~', visible: false},
+        {item:'=', visible: false},
+        {item:'=', visible: false},
+        {item:'#', visible: false},
+        {item:'#', visible: false},
+    ])
 
   return (
     <div className="App">

@@ -3,32 +3,49 @@ import styles from './GameField.module.scss'
 import Blocks from "./Blocks";
 
 const GameField = ({gamearray}) => {
-    const [compares, setCompare] = useState({firstel: '', secondel: ''})
+    const [compares, setCompare] = useState({firstel: '', firselIN:'', secondel: '',secondelID:''})
     const [selectedcount, setSelectedcount] = useState(0)
+    const [fieldArray, setfieldArray] = useState(gamearray)
 
-    const setComparinos = (item) => {
+    const setComparinos = (item,itemindex) => {
         switch (selectedcount){
             case 0:
+                compares.firselIN = itemindex
                 compares.firstel=item
+                fieldArray[compares.firselIN]={...fieldArray[compares.firselIN], visible:true}
                 setSelectedcount(selectedcount+1)
                 break;
             case 1:
+                compares.secondelID=itemindex
                 compares.secondel=item
+                fieldArray[compares.secondelID]={...fieldArray[compares.secondelID], visible:true}
                 setSelectedcount(selectedcount+1)
-                setSelectedcount(0)
-                CompareElement()
+                setTimeout(()=>{
+                    CompareElement()
+                    setSelectedcount(0)
+                },1000)
                 break;
         }
     }
 
     const CompareElement = () =>{
-        compares.firstel==compares.secondel? console.log('da'):console.log('net')
+        if(compares.firstel===compares.secondel) {
+            console.log('+')
+            fieldArray[compares.firselIN]={...fieldArray[compares.firselIN], visible:true}
+            fieldArray[compares.secondelID]={...fieldArray[compares.secondelID], visible:true}
+        } else {
+            console.log('-')
+            fieldArray[compares.firselIN]={...fieldArray[compares.firselIN], visible:false}
+            fieldArray[compares.secondelID]={...fieldArray[compares.secondelID], visible:false}
+        }
     }
     return (
         <div className={styles.gamefield}>
-            {gamearray.map((item,index)=>
+            {fieldArray.map((item,index)=>
                 <Blocks
-                    item={item}
+                    item={item.item}
+                    itemindex={index}
+                    visibled={item.visible}
                     key={index}
                     compare={setComparinos}
                 />

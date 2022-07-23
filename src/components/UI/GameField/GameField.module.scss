@@ -4,12 +4,12 @@
   width: 100%;
   height: 0;
   padding-bottom:100%;
-  background: $blockColor;
+  background: var(--blockColor);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
   div {
-    background: $elementCOlor;
+    background: var(--elementCOlor);
     height: 0;
     padding-bottom: 93.5%;
     margin: 4px;
@@ -17,7 +17,7 @@
     transition: 0.5s;
 
     span{
-      color: $blockColor;
+      color: var(--blockColor);
       font-size: 5em;
       display: none;
     }
@@ -28,7 +28,13 @@
   }
   div:hover{
     transition: 0.5s;
-    background: darken($elementCOlor, 10);
+    background: darken(#247371, 10);
+  }
+  div.active {
+    cursor: default;
+    transition: 0.5s;
+    background: darken(#247371, 12);
+
   }
   @media screen and (max-width: 800px) {
     div {

@@ -30,11 +30,9 @@ const GameField = ({gamearray}) => {
 
     const CompareElement = () =>{
         if(compares.firstel===compares.secondel) {
-            console.log('+')
             fieldArray[compares.firselIN]={...fieldArray[compares.firselIN], visible:true}
             fieldArray[compares.secondelID]={...fieldArray[compares.secondelID], visible:true}
         } else {
-            console.log('-')
             fieldArray[compares.firselIN]={...fieldArray[compares.firselIN], visible:false}
             fieldArray[compares.secondelID]={...fieldArray[compares.secondelID], visible:false}
         }

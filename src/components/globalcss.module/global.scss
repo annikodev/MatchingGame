@@ -1,7 +1,7 @@
 @import "colors";
 
 body {
-  background: $backgroundWhite;
+  background: var(--background);
   display: flex;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -13,14 +13,17 @@ body {
   width: auto;
   justify-content: center;
   align-items: center;
+  transition: 0.5s;
 }
 .App {
-  background: $mainColor;
+  background: var(--mainColor);
   margin: 15px 0px;
   width: 70vw;
   max-width: 500px;
   height: auto;
   padding: 10px;
+  transition: 0.5s;
+
 }
 @media screen and (max-width: 800px) {
   .App {
